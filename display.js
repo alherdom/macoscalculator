@@ -6,6 +6,20 @@ class Display {
         this.operationType = undefined
         this.CurrentValue = ''
         this.PreviousValue = ''
+        this.signs = {
+            addition: '+',
+            subtraction: '-',
+            multiplication: '*',
+            division: '%'
+        }
+    }
+
+    compute (type) {
+        this.operationType !== 'equal' && this.calculate()
+        this.operationType = type
+        this.PreviousValue = this.CurrentValue || this.PreviousValue
+        this.CurrentValue = ''
+        this.printValues()
     }
 
     addNumber(number) {
@@ -28,5 +42,12 @@ class Display {
     printValues() {
         this.displayCurrentValue.textContent = this.CurrentValue
         this.displayPreviousValue.textContent = this.PreviousValue
+    }
+    calculate() {
+        const PreviousValue = parseFloat(this.PreviousValue)
+        const CurrentValue = parseFloat(this.CurrentValue)
+
+        if(isNaN(CurrentValue) || isNaN(PreviousValue)) return
+        this.CurrentValue = this.calculator[this.operationType](PreviousValue, CurrentValue)
     }
 }
