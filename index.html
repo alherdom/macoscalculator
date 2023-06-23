@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet">
+    <script src="display.js" type="text/javascript"></script>
     <script src="calculator.js" type="text/javascript"></script>
     <script src="index.js" type="text/javascript" defer></script>
     <title>Calculator</title>
@@ -17,8 +19,8 @@
                 <div id="previous-value"></div>
                 <div id="current-value"></div>
             </div>
-            <button class="col-2">C</button>
-            <button>&larr;</button>
+            <button class="col-2" onclick="display.delAll()">C</button>
+            <button onclick="display.delNumber()">&larr;</button>
             <button class="number">%</button>
             <button class="number">7</button>
             <button class="number">8</button>
@@ -32,7 +34,7 @@
             <button class="number">2</button>
             <button class="number">3</button>
             <button  class="operator">+</button>
-            <button class="number">0</button>
+            <button class="col-2">0</button>
             <button  class="number">.</button>
             <button  class="operator">=</button>
         </div>
