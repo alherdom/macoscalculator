@@ -2,11 +2,11 @@
 const display = document.querySelector('.display');
 const buttons = document.querySelectorAll('.btn');
 
-// Add event for each buttons
+// Add event for each button
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        if (button.id === 'point' && display.textContent.includes(',')) { 
-            return
+        if (button.id === 'point' && display.textContent.includes('.')) {
+            return;
         }
         // If the button is C, remove all display contents
         if (button.id === 'c') {
@@ -14,9 +14,9 @@ buttons.forEach(button => {
         }
         // If the button is delete, remove the last display character
         else if (button.id === 'delete') {
-            display.textContent = display.textContent.slice(0, -1) || 0;
+            display.textContent = display.textContent.slice(0, -1) || '0';
         }
-        // If the button is equal, we evalue the display mathematci expresion
+        // If the button is equal, evaluate the display mathematical expression
         else if (button.id === 'equal') {
             try {
                 const result = evaluateExpression(display.textContent);
@@ -25,7 +25,7 @@ buttons.forEach(button => {
                 display.textContent = 'Error';
             }
         }
-        // If the button is not special, we add the display contents
+        // If the button is not special, add the display contents
         else {
             if (display.textContent === '0' || display.textContent === 'Error') {
                 display.textContent = button.textContent;
@@ -36,7 +36,7 @@ buttons.forEach(button => {
     });
 });
 
-// Función para evaluar la expresión matemática
+// Function to evaluate the mathematical expression
 function evaluateExpression(expression) {
     const operators = {
         '+': (a, b) => a + b,
