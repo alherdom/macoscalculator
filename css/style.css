@@ -7,76 +7,56 @@
 
 body {
     min-height: 100vh;
+    color: white;
     background-color: white;
     display: grid;
     place-items: center;
 }
 
-.calculadora {
-    background-color: #5c5c5c;
-    color: white;
-    width: 350px;
-    max-width: 100%;
-    border-radius: 0.5rem;
+.calculator {
+    background-color: #383838;
+    width: 450px;
+    height: 450px;
+    padding: .1rem;
+    border-radius:.2rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 0rem;
 }
 
-.pantalla {
+.display {
     grid-column: 1 / -1;
-    background-color: #5c5c5c;
+    height: 100px;
     padding: 1.5rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: right;
-    border-radius: .5rem;
-    margin-bottom: 1rem;
-    font-family: monospace;
     font-weight: 600;
 }
 
 .btn {
-    background-color: #5c5c5c;;
+    font-size: 1.5rem;
     color: white;
+    background-color: #949494;
     border: 0;
-    padding: 1.5rem .5rem;
-    font-size: 1rem;
-    display: flex;
-    justify-content:center;
-    align-items: center;
     cursor: pointer;
 }
 
-.btn:hover {
-    background-color: black;
+.btn:hover, #c:hover, #delete:hover, #percent:hover {
+    background-color: gainsboro;
 }
 
-#cero {
+#oper:hover, #equal:hover {
+    background-color: #D9952F;
+}
+
+#zero {
     grid-column: span 2;
 }
 
-#oper {
-    grid-row: span 1;
-    background-color: #fc9c0b;
+#c, #delete, #percent {
+    background-color: #64646c;
 }
 
-#oper:hover {
-    background-color: black;
-}
-
-#igual {
-    grid-row: span 1;
-    background-color: #fc9c0b;
-}
-
-#igual:hover {
-    background-color: black;
-}
-
-#c, #borrar, #porcentaje {
-    grid-row: span 1;
-    background-color: #3c3c3c;
-}
-
-#c:hover, #borrar:hover, #porcentaje:hover {
-    background-color: black;
+#oper, #equal {
+    background-color: #f2a635;
 }

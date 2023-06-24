@@ -1,69 +1,70 @@
-// Obtenemos los elementos del DOM
-const pantalla = document.querySelector('.pantalla');
-const botones = document.querySelectorAll('.btn');
-const igual = document.getElementById('igual');
-const borrar = document.getElementById('borrar');
+// Get elements from the DOM
+const display = document.querySelector('.display');
+const buttons = document.querySelectorAll('.btn');
 
-// Añadimos el evento click a cada botón
-botones.forEach(botón => {
-    botón.addEventListener('click', () => {
-        // Si el botón es el de AC, borramos todo el contenido de la pantalla
-        if (botón.id === 'c') {
-            pantalla.textContent = '0';
+// Add event for each buttons
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (button.id === 'point' && display.textContent.includes(',')) { 
+            return
         }
-        // Si el botón es el de borrado, eliminamos el último carácter de la pantalla
-        else if (botón.id === 'borrar') {
-            pantalla.textContent = pantalla.textContent.slice(0, -1);
+        // If the button is C, remove all display contents
+        if (button.id === 'c') {
+            display.textContent = '0';
         }
-        // Si el botón es el de igual, evaluamos la expresión matemática en la pantalla
-        else if (botón.id === 'igual') {
+        // If the button is delete, remove the last display character
+        else if (button.id === 'delete') {
+            display.textContent = display.textContent.slice(0, -1) || 0;
+        }
+        // If the button is equal, we evalue the display mathematci expresion
+        else if (button.id === 'equal') {
             try {
-                const resultado = evaluarExpresion(pantalla.textContent);
-                pantalla.textContent = resultado;
+                const result = evaluarExpresion(display.textContent);
+                display.textContent = result;
             } catch (error) {
-                pantalla.textContent = 'Error';
+                display.textContent = 'Error';
             }
         }
-        // Si el botón no es especial, lo añadimos al contenido de la pantalla
+        // If the button is not special, we add the display contents
         else {
-            if (pantalla.textContent === '0' || pantalla.textContent === 'Error') {
-                pantalla.textContent = botón.textContent;
+            if (display.textContent === '0' || display.textContent === 'Error') {
+                display.textContent = button.textContent;
             } else {
-                pantalla.textContent += botón.textContent;
+                display.textContent += button.textContent;
             }
         }
     });
 });
 
 // Función para evaluar la expresión matemática
-function evaluarExpresion(expresion) {
-    const operaciones = {
+function evaluateExpression(expression) {
+    const operators = {
         '+': (a, b) => a + b,
         '-': (a, b) => a - b,
         'x': (a, b) => a * b,
         '÷': (a, b) => a / b,
-        '%': (a, b) => a % b
+        '%': (a, b) => a / 100
     };
 
-    const partes = expresion.split(/(\+|\-|x|÷|%)/);
-    let resultado = parseFloat(partes[0]);
-    let operador = null;
+    const parts = expression.split(/(\+|\-|x|÷|%)/);
+    let result = parseFloat(parts[0]);
+    let operator = null;
 
-    for (let i = 1; i < partes.length; i += 2) {
-        const valor = parseFloat(partes[i + 1]);
-        const operacion = operaciones[partes[i]];
+    for (let i = 1; i < parts.length; i += 2) {
+        const value = parseFloat(parts[i + 1]);
+        const operation = operators[parts[i]];
 
-        if (operador === null) {
-            resultado = operacion(resultado, valor);
+        if (operator === null) {
+            result = operation(result, value);
         } else {
-            resultado = operaciones[operador](resultado, valor);
-            operador = null;
+            result = operators[operator](result, value);
+            operator = null;
         }
 
-        if (i + 2 < partes.length) {
-            operador = partes[i + 2];
+        if (i + 2 < parts.length) {
+            operator = parts[i + 2];
         }
     }
 
-    return resultado;
+    return result;
 }
