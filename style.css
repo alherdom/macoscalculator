@@ -22,7 +22,6 @@ body {
     padding: 15px;
     border-radius: 30px;
     box-shadow: 15px 10px 0px 5px #00000033;
-
 }
 
 button {
@@ -38,7 +37,6 @@ button {
 
 button:active {
     background-color: #006f54;
-
 }
 
 button:focus {
@@ -62,8 +60,6 @@ button:focus {
     justify-content: space-between;
     word-break: break-all;
     box-shadow: 0px 0px 0px 5px #00000033;
-
-
 }
 
 #current-value {
