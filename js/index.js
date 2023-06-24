@@ -19,7 +19,7 @@ buttons.forEach(button => {
         // If the button is equal, we evalue the display mathematci expresion
         else if (button.id === 'equal') {
             try {
-                const result = evaluarExpresion(display.textContent);
+                const result = evaluateExpression(display.textContent);
                 display.textContent = result;
             } catch (error) {
                 display.textContent = 'Error';
