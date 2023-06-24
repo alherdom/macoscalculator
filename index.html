@@ -1,41 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces&display=swap" rel="stylesheet">
-    <script src="display.js" type="text/javascript"></script>
-    <script src="calculator.js" type="text/javascript"></script>
-    <script src="index.js" type="text/javascript" defer></script>
-    <title>Calculator</title>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="calculator">
-            <div class="display">
-                <div id="previous-value"></div>
-                <div id="current-value"></div>
-            </div>
-            <button class="col-2" onclick="display.delAll()">C</button>
-            <button onclick="display.delNumber()">&larr;</button>
-            <button class="operator" value="division">%</button>
-            <button class="number">7</button>
-            <button class="number">8</button>
-            <button class="number">9</button>
-            <button class="operator" value="multiplication">*</button>
-            <button class="number">4</button>
-            <button class="number">5</button>
-            <button class="number">6</button>
-            <button class="operator" value="subtraction">-</button>
-            <button class="number">1</button>
-            <button class="number">2</button>
-            <button class="number">3</button>
-            <button  class="operator" value="addition">+</button>
-            <button class="col-2 number">0</button>
-            <button  class="number">.</button>
-            <button  class="operator" value="equal">=</button>
-        </div>
+
+    <div class="calculadora">
+
+        <div class="pantalla">0</div>
+
+        <button id="c" class="btn">AC</button>
+        <button id="borrar" class="btn">←</button>
+        <button id="porcentaje" class="btn">%</button>
+        <button id="oper" class="btn">÷</button>
+        <button class="btn">7</button>
+        <button class="btn">8</button>
+        <button class="btn">9</button>
+        <button id="oper" class="btn">x</button>
+        <button class="btn">4</button>
+        <button class="btn">5</button>
+        <button class="btn">6</button>
+        <button id="oper" class="btn">-</button>
+        <button class="btn">1</button>
+        <button class="btn">2</button>
+        <button class="btn">3</button>
+        <button id="oper" class="btn">+</button>
+        <button id="cero" class="btn">0</button>
+        <button class="btn">.</button>
+        <button id="igual" class="btn">=</button>
     </div>
+
+    
+    <script src="./js/index.js"></script>
 </body>
 </html>
