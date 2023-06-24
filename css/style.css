@@ -22,7 +22,7 @@ body {
     border-radius:.5rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.4rem;
+    gap: 0.1rem;
 }
 
 .display {
@@ -68,4 +68,12 @@ body {
 
 #zero {
     border-radius: 0px 0px 0px .5rem;
+}
+
+#delete {
+    font-size: 2em;
+}
+
+.multi {
+    font-size: 1.2em;
 }
