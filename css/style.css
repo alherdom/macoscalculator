@@ -88,8 +88,8 @@ body {
 
 @media (max-width: 480px) {
     .calculator {
-        padding: 0.5rem;
-        gap: 0.5rem;
+        padding: 0.1rem;
+        gap: 0.1rem;
     }
 
     .display {
