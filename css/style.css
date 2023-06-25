@@ -86,8 +86,7 @@ body {
     }
 }
 
-
-@media (max-width: 375px) {
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
     .calculator {
         width: 50%;
         height: auto;
