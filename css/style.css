@@ -86,20 +86,6 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    .calculator {
-        padding: 0.1rem;
-    }
-
-    .display {
-        font-size: 2rem;
-        padding: 1rem;
-    }
-
-    .btn {
-        font-size: 1.2rem;
-    }
-}
 
 @media (max-width: 375px) {
     .calculator {
