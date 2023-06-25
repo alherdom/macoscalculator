@@ -100,12 +100,23 @@ body {
     .btn {
         font-size: 1.2rem;
     }
+}
 
-    #delete {
-        font-size: 1.5rem;
+@media (max-width: 375px) {
+    .calculator {
+        width: 100%;
+        height: auto;
+        max-width: 320px;
+        padding: 0.5rem;
+        gap: 0.5rem;
     }
 
-    .multi {
-        font-size: 1em;
+    .display {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+
+    .btn {
+        font-size: 1.2rem;
     }
 }
