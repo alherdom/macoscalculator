@@ -89,9 +89,9 @@ body {
 
 @media (max-width: 375px) {
     .calculator {
-        width: 90%;
+        width: 50%;
         height: auto;
-        max-width: 300px;
+        max-width: 375px;
         padding: 0.5rem;
     }
 
