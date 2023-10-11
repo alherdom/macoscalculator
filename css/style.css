@@ -14,7 +14,7 @@ body {
 
 .calculator {
     background-color: #2B2B29;
-    box-shadow: rgb(160, 160, 160) 0px 0px 50px 10px;
+    /* box-shadow: rgb(160, 160, 160) 0px 0px 50px 10px; */
     width: 235px;
     height: 325px;
     padding: .1rem;
