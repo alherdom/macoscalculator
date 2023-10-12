@@ -1,57 +1,73 @@
-const display = document.querySelector('.display');
-const buttons = document.querySelectorAll('.btn');
+var display = document.querySelector('.display');
+var buttons = document.querySelectorAll('.btn');
+var firstNumber = null;
+var secondNumber = null;
+var operator = null;
 
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        if (button.id === 'c') {
-            display.textContent = '0';
-        }
-        else if (button.id === 'delete') {
-            display.textContent = display.textContent.slice(0, -1) || '0';
-        }
-        else if (button.id === 'equal') {
-            const result = evaluateExpression(display.textContent);
-            display.textContent = result;
-        }
-        else {
-            if (display.textContent === '0') {
-                display.textContent = button.textContent;
-                }
-            else {
-                display.textContent += button.textContent;
-                }
-        }
-    });
-});
+function handleButtonClick(button) {
+  var buttonText = button.textContent;
 
-function evaluateExpression(expression) {
-    const operators = {
-      '+': (a, b) => a + b,
-      '-': (a, b) => a - b,
-      'x': (a, b) => a * b,
-      '÷': (a, b) => a / b,
-      '%': (a, b) => a / 100
-    };
-  
-    const parts = expression.match(/(\d+(\.\d+)?|\+|\-|x|÷|%)/g);
-    let result = parseFloat(parts[0]);
-    let operator = null;
-  
-    for (let i = 1; i < parts.length; i += 2) {
-      const value = parseFloat(parts[i + 1]);
-      const operation = operators[parts[i]];
-  
-      if (operator === null) {
-        result = operation(result, value);
+  switch (button.id) {
+    case 'ac':
+      display.textContent = "0";
+      firstNumber = null;
+      operator = null;
+      break;
+    case '±':
+      display.textContent = parseFloat(display.textContent) * -1;
+      break;
+    case 'percent':
+      var percent = (parseFloat(display.textContent) / 100).toFixed(2);
+      display.textContent = percent.toLocaleString('es-ES');
+      break;
+    case 'num':
+      if (display.textContent === '0') {
+        display.textContent = buttonText;
       } else {
-        result = operators[operator](result, value);
+        display.textContent += buttonText;
+      }
+      break
+    case 'addition':
+    case 'subtraction':
+    case 'multiplication':
+    case 'division':
+      if (firstNumber === null) {
+        firstNumber = parseFloat(display.textContent);
+        operator = button.id;
+        display.textContent = '0';
+      }
+      break;
+    case 'equal':
+      if (firstNumber !== null && operator !== null) {
+        secondNumber = parseFloat(display.textContent);
+        switch (operator) {
+          case 'addition':
+            display.textContent = (firstNumber + secondNumber).toLocaleString('es-ES');
+            break;
+          case 'subtraction':
+            display.textContent = (firstNumber - secondNumber).toLocaleString('es-ES');
+            break;
+          case 'multiplication':
+            display.textContent = (firstNumber * secondNumber).toLocaleString('es-ES');
+            break;
+          case 'division':
+            if (secondNumber !== 0) {
+              display.textContent = (firstNumber / secondNumber).toLocaleString('es-ES');
+            } else {
+              display.textContent = "Error";
+            }
+            break;
+        }
+        firstNumber = null;
+        secondNumber = null;
         operator = null;
       }
-  
-      if (i + 2 < parts.length) {
-        operator = parts[i + 2];
-      }
-    }
-  
-    return result.toString();
+      break;
   }
+}
+
+buttons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    handleButtonClick(button);
+  });
+});
