@@ -17,8 +17,7 @@ function handleButtonClick(button) {
       display.textContent = parseFloat(display.textContent) * -1;
       break;
     case 'percent':
-      var percent = (parseFloat(display.textContent) / 100).toFixed(2);
-      display.textContent = percent.toLocaleString('es-ES');
+      display.textContent = (parseFloat(display.textContent) / 100).toFixed(2);
       break;
     case 'num':
       if (display.textContent === '0') {
