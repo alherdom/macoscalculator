@@ -11,6 +11,7 @@ function handleButtonClick(button) {
     case 'ac':
       display.textContent = "0";
       firstNumber = null;
+      secondNumber = null;
       operator = null;
       break;
     case '±':
@@ -25,7 +26,17 @@ function handleButtonClick(button) {
       } else {
         display.textContent += buttonText;
       }
+    
       break
+     
+    // Added the zero case
+    case 'zero':
+      if (display.textContent === '0') {
+        display.textContent = buttonText;
+      } else {
+        display.textContent += buttonText;
+      }
+      break;
     case 'addition':
     case 'subtraction':
     case 'multiplication':
@@ -36,22 +47,28 @@ function handleButtonClick(button) {
         display.textContent = '0';
       }
       break;
+
+    // Adding the decimal case
+    case 'point':
+        display.textContent += buttonText;
+        break;
+
     case 'equal':
       if (firstNumber !== null && operator !== null) {
         secondNumber = parseFloat(display.textContent);
         switch (operator) {
           case 'addition':
-            display.textContent = (firstNumber + secondNumber).toLocaleString('es-ES');
+            display.textContent = (firstNumber + secondNumber);
             break;
           case 'subtraction':
-            display.textContent = (firstNumber - secondNumber).toLocaleString('es-ES');
+            display.textContent = (firstNumber - secondNumber);
             break;
           case 'multiplication':
-            display.textContent = (firstNumber * secondNumber).toLocaleString('es-ES');
+            display.textContent = (firstNumber * secondNumber)==0 ? 0 :  (firstNumber * secondNumber).toFixed(2);
             break;
           case 'division':
             if (secondNumber !== 0) {
-              display.textContent = (firstNumber / secondNumber).toLocaleString('es-ES');
+              display.textContent = (firstNumber / secondNumber).toFixed(2);
             } else {
               display.textContent = "Error";
             }
@@ -61,7 +78,11 @@ function handleButtonClick(button) {
         secondNumber = null;
         operator = null;
       }
-      break;
+
+
+
+
+    break;
   }
 }
 
