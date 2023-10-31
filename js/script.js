@@ -26,7 +26,6 @@ function handleButtonClick(button) {
       } else {
         display.textContent += buttonText;
       }
-    
       break
      
     // Added the zero case
