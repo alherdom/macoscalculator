@@ -50,7 +50,8 @@ body {
 
 .display {
     grid-column: 1 / -1;
-    font-size: 3rem;
+    font-size: 46px;
+    font-weight: lighter;
     text-align: right;
     padding-top: 7%;
     margin-bottom: 1px;
@@ -110,23 +111,4 @@ body {
 
 #zero {
     border-radius: 0px 0px 0px .6rem;
-}
-
-
-@media only screen and (-webkit-min-device-pixel-ratio: 3) {
-    .calculator {
-        width: 90%;
-        height: auto;
-        max-width: 375px;
-        padding: 0.5rem;
-    }
-
-    .display {
-        font-size: 2rem;
-        padding: 1rem;
-    }
-
-    .btn {
-        font-size: 1.2rem;
-    }
 }
