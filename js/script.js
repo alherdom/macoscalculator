@@ -27,8 +27,7 @@ function handleButtonClick(button) {
         display.textContent += buttonText;
       }
       break
-     
-    // Added the zero case
+
     case 'zero':
       if (display.textContent === '0') {
         display.textContent = buttonText;
@@ -47,10 +46,9 @@ function handleButtonClick(button) {
       }
       break;
 
-    // Adding the decimal case
     case 'point':
-        display.textContent += buttonText;
-        break;
+      display.textContent += buttonText;
+      break;
 
     case 'equal':
       if (firstNumber !== null && operator !== null) {
@@ -63,7 +61,7 @@ function handleButtonClick(button) {
             display.textContent = (firstNumber - secondNumber);
             break;
           case 'multiplication':
-            display.textContent = (firstNumber * secondNumber)==0 ? 0 :  (firstNumber * secondNumber).toFixed(2);
+            display.textContent = (firstNumber * secondNumber) == 0 ? 0 : (firstNumber * secondNumber).toFixed(2);
             break;
           case 'division':
             if (secondNumber !== 0) {
@@ -77,11 +75,7 @@ function handleButtonClick(button) {
         secondNumber = null;
         operator = null;
       }
-
-
-
-
-    break;
+      break;
   }
 }
 
