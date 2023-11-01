@@ -4,6 +4,6 @@
 
 
 <div align="center">
-<img width=30% src="img/calculator-removebg.png">
+<img width=30% src="">
 
 </div>
