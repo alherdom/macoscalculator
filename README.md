@@ -4,6 +4,6 @@
 
 
 <div align="center">
-<!-- <img width=30% src=""> -->
+<img width=30% src="img/calculator.png">
 
 </div>
