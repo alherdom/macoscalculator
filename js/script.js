@@ -5,10 +5,25 @@ var secondNumber = null;
 var operator = null;
 
 function handleButtonClick(button) {
+
+  let limit = 5
+  while (display.textContent.length > limit) {
+    var fontSize = window.getComputedStyle(display).getPropertyValue("font-size");
+    var paddingTop = window.getComputedStyle(display).getPropertyValue("padding-top");
+
+    display.style.fontSize = (parseInt(fontSize) - 2) + "px";
+    display.style.paddingTop = (parseInt(paddingTop) + 1) + "px";
+    limit += 2
+    console.log(display.style.fontSize)
+    console.log(display.style.paddingTop)
+  }
+
   var buttonText = button.textContent;
 
   switch (button.id) {
     case 'ac':
+      display.style.fontSize = "46px";
+      display.style.paddingTop = "25px";
       display.textContent = "0";
       firstNumber = null;
       secondNumber = null;
